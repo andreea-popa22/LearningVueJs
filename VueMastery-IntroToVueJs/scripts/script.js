@@ -6,6 +6,9 @@ var app = new Vue({
     product: 'Socks',
     description: 'A pair of warm, fuzzy socks',
     image: './resources/socks.jpg',
+    // inStock: false,
+    inventory: 9,
+    onSale: true,
     link: 'https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=socks'
   } 
 })
