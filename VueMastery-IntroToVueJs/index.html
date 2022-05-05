@@ -17,13 +17,25 @@
       <div class="product-info">
         <h1>{{ product }}</h1>
         <p>{{ description }}</p>
-        <!-- <p v-if="inStock">In Stock</p> -->
+        <p v-if="inStock">In Stock</p>
         <!-- <p v-show="inStock">In Stock</p> -->
-        <p v-if="inventory > 10">In Stock</p>
-        <p v-if-else="inventory <= 10 && inventory > 0">Almost Sold Out!</p>
+        <!-- <p v-if="inventory > 10">In Stock</p>
+        <p v-if-else="inventory <= 10 && inventory > 0">Almost Sold Out!</p> -->
         <p v-else>Out Of Stock</p>
-        <p v-if="onSale">On Sale!</p>
-        <a :href="link" target="_blank">More products like this</a>
+        <!-- <p v-if="onSale">On Sale!</p> -->
+        <!-- <a :href="link" target="_blank">More products like this</a> -->
+        <p>Details:</p>
+        <ul>
+          <li v-for="detail in details">{{ detail }}</li>
+        </ul>
+        <p>Available colors:</p>
+        <ul v-for="variant in variants" :key="variant.variantId">
+          <li>{{ variant.variantColor }}</li>
+        </ul>
+        <p>Sizes:</p>
+        <ul>
+          <li v-for="size in sizes">{{ size }}</li>
+        </ul>
       </div>
   </div>
 </div> 
