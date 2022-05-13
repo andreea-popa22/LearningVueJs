@@ -1,6 +1,6 @@
 ## This repo contains my work while learning VueJs.
 
-First, I started with Vue Mastery - Intro to VueJs course containing the following lessons:
+First, I started with Vue Mastery - Intro to Vue 2 course containing the following lessons:
 - The Vue Instance
 - Attribute Binding
 - Conditional Rendering
