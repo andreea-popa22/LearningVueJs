@@ -11,6 +11,17 @@
   <div id="shopping-list">
     <h1>{{ header || 'Welcome' }}</h1>
 
+    <input v-model="newItem" type="text" placeholder="Add an item">
+    
+    <label>
+      Priority
+      <select v-model="newItemPrority">
+        <option value="low">Low</option>
+        <option value="high">High</option>
+      </select>
+    </label>
+    <br>
+
     <ul>
       <li v-for="(item, index) in items" :key="item.id">{{item.id}}. {{item.label}}</li>
     </ul>
@@ -23,6 +34,8 @@
       data() {
         return {
           header: 'Shopping List App',
+          newItem: '',
+          newItemPriority: 'low',
           items: [
             {id: 1, label: "10 party hats"},
             {id: 2, label: "2 boardgames"},
