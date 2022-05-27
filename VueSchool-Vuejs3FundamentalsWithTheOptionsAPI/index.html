@@ -9,17 +9,16 @@
 
 <body>
   <div id="shopping-list">
-    <h1>{{ header }}</h1>
-    <input v-model="header">
+    <h1>{{ header || 'Welcome' }}</h1>
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>
-  
+
   <script>
     Vue.createApp({
       data() {
         return {
-          header: 'Vuejs tutorial'
+          header: 'Shopping List App'
         }
       }
     }).mount('#shopping-list')
