@@ -9,9 +9,14 @@
 
 <body>
   <div id="shopping-list">
-    <h1>{{ header || 'Welcome' }}</h1>
+    <div class="header">
+      <h1>{{ header || 'Welcome' }}</h1>
+      <button v-if="editing" @click="doEdit(false)" class="btn btn-cancel">Cancel</button>
+      <button v-else @click="doEdit(true)" class="btn btn-primary">Add item</button>
+    </div>
+    
 
-    <div class="add-item-form">
+    <div v-if="editing" class="add-item-form">
       <input 
         @keyup.enter="saveItem" 
         v-model="newItem" type="text" placeholder="Add an item">
@@ -29,6 +34,8 @@
 
     </div>
 
+    <p v-if="items.length === 0">Nothing left to buy!</p>
+
     <ul>
       <li v-for="item in items" :key="item.id">{{item.id}}. {{item.label}}</li>
     </ul>
@@ -42,17 +49,22 @@
         return {
           header: 'Shopping List App',
           newItem: '',
+          editing: false,
           newItemHighPriority: false,
           items: [
-            {id: 1, label: "10 party hats"},
-            {id: 2, label: "2 boardgames"},
-            {id: 3, label: "20 cups"}
+            // {id: 1, label: "10 party hats"},
+            // {id: 2, label: "2 boardgames"},
+            // {id: 3, label: "20 cups"}
           ]
         }
       },
       methods:{
           saveItem(){
             this.items.push({id:this.items.length + 1, label: this.newItem})
+            this.newItem = ''
+          },
+          doEdit(editing){
+            this.editing = editing
             this.newItem = ''
           }
         }
