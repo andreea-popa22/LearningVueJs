@@ -27,6 +27,7 @@
       </label>
       
       <button 
+        v-bind:disabled="newItem.length < 5"
         @click="saveItem" 
         class="btn btn-primary">
         Save item
