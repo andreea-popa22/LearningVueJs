@@ -1,8 +1,8 @@
 ## This repo contains my work while learning VueJs.
 
 ### Courses:
-###     🔹 Vue Mastery - Intro to Vue 2 [link](https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance)
-###     🔹 Vue School - Vue Js 3 Fundamentals with the Options API [link](https://vueschool.io/courses/vuejs-3-fundamentals)
+###     🔹 Vue Mastery - Intro to Vue 2 [(link)](https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance)
+###     🔹 Vue School - Vue Js 3 Fundamentals with the Options API [(link)](https://vueschool.io/courses/vuejs-3-fundamentals)
 
 ___
 
