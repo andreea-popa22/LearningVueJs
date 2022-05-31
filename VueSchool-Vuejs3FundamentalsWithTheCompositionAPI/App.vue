@@ -4,19 +4,45 @@ import { ref } from 'vue'
 const header = ref('Shopping List App')
 const editing = ref(false)
 const items = ref([
-  // {id: 1, label: "10 party hats"},
-  // {id: 2, label:"2 board games"},
-  // {id: 3, label: "20 cups"}
+   {
+     id: 1, 
+     label: "10 party hats", 
+     purchased: true, 
+     highPriority: false
+   },
+   {
+		id: 2, 
+    label:"2 board games", 
+    purchased: true, 
+    highPriority: false
+   },
+   {
+     id: 3, 
+     label: "20 cups", 
+     purchased: false, 
+     highPriority: true
+   }
 ])
 const newItem = ref("")
 const newItemHighPriority = ref(false)
 const saveItem = ()=>{
-	items.value.push({id: items.value.length + 1,label: newItem.value})
+	items.value.push(
+    {
+      id: items.value.length + 1,
+      label: newItem.value,
+      highPriority: newItemHighPriority.value
+    })
   newItem.value = ""
+  newItemHighPriority.value = ""
 }
 const doEdit = (e)=>{
   editing.value = e
   newItem.value = ""
+  newItemHighPriority.value = ""
+}
+
+const togglePurchased = (item) =>{
+  item.purchased = !item.purchased
 }
 </script>
 
@@ -52,8 +78,17 @@ const doEdit = (e)=>{
     </button>
    </form>
   <ul>
-    <li v-for="({id, label}, index) in items" :key="id">
-      {{label}}
+    <li 
+      v-for="(item, index) in items" 
+      @click="togglePurchased(item)"
+      :key="item.id"
+      class="static-class"
+      :class="{
+        strikeout: item.purchased, 
+        priority: item.highPriority, 
+      }"
+    >
+      {{item.label}}
     </li>
   </ul>
   <p v-if="!items.length">
