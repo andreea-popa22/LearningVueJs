@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const header = ref('Shopping List App')
 const editing = ref(false)
@@ -23,6 +23,7 @@ const items = ref([
      highPriority: true
    }
 ])
+const reversedItems = computed(()=>[...items.value].reverse())
 const newItem = ref("")
 const newItemHighPriority = ref(false)
 const saveItem = ()=>{
@@ -79,7 +80,7 @@ const togglePurchased = (item) =>{
    </form>
   <ul>
     <li 
-      v-for="(item, index) in items" 
+      v-for="(item, index) in reversedItems" 
       @click="togglePurchased(item)"
       :key="item.id"
       class="static-class"
