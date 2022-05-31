@@ -97,7 +97,3 @@ const togglePurchased = (item) =>{
   </p>
   
 </template>
-
-<style>
-@import "./main.css";
-</style>
